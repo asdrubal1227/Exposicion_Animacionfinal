@@ -1,7 +1,10 @@
 package com.example.brayanasdrubal.animacionfinal;
 
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -29,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void getDrawableAnimation(View view) {
-        Intent intent = new Intent(this,   DrawableAnimationActivity.class);
-        startActivity(intent);
+        Intent i = new Intent(this, DrawableAnimationActivity.class);
+        ActivityOptions opts = ActivityOptions.makeCustomAnimation(
+                this, R.anim.entrada_derecha, R.anim.salida_izquierda);
+        startActivity(i, opts.toBundle());
 
     }
 

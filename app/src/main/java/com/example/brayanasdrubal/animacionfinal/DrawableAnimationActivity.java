@@ -12,6 +12,7 @@ public class DrawableAnimationActivity extends AppCompatActivity {
 
 
     AnimationDrawable slideShowAnimation;
+    AnimationDrawable slideShowAnimation2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +22,17 @@ public class DrawableAnimationActivity extends AppCompatActivity {
         ImageView slideShow = (ImageView) findViewById(R.id.imageViewSlideShow);
         slideShow.setBackgroundResource(R.drawable.slide_show);
         slideShowAnimation = (AnimationDrawable) slideShow.getBackground();
+
+        ImageView slideShow2 = (ImageView) findViewById(R.id.imageViewSlideShow2);
+        slideShow2.setBackgroundResource(R.drawable.vuelo);
+        slideShowAnimation2 = (AnimationDrawable) slideShow2.getBackground();
     }
 
     public boolean onTouchEvent(MotionEvent event) {
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             slideShowAnimation.start();
+            slideShowAnimation2.start();
             return true;
         }
 

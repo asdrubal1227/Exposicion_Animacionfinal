@@ -23,7 +23,7 @@ public class ViewAnimationActivity extends AppCompatActivity {
 
     public void getTogether(View view) {
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView1 );
+        ImageView imageView = (ImageView) findViewById(R.id.imageView1 );//Se establecen las imagenes que realizaran el movimiento
         move(imageView);
 
         imageView = (ImageView) findViewById(R.id.imageView2 );
@@ -51,26 +51,26 @@ public class ViewAnimationActivity extends AppCompatActivity {
         int startPosition[] = new int[2];
         view.getLocationOnScreen(startPosition);
 
-        AnimationSet animationSet = new AnimationSet(false);
+        AnimationSet animationSet = new AnimationSet(false);//Se crea el Animation set para asi aderir varias animaciones
 
         RotateAnimation rotate = new RotateAnimation(0,360,
-                Animation.RELATIVE_TO_SELF, 0.5f , Animation.RELATIVE_TO_SELF,0.5f );
+                Animation.RELATIVE_TO_SELF, 0.5f , Animation.RELATIVE_TO_SELF,0.5f );//Se hace rotar los dibujos
         rotate.setInterpolator(new LinearInterpolator());
         rotate.setRepeatCount(Animation.INFINITE);
         rotate.setDuration(2000);
 
         animationSet.addAnimation(rotate);
 
-        TranslateAnimation translate =  new TranslateAnimation(Animation.ABSOLUTE, 0.0f,
+        TranslateAnimation translate =  new TranslateAnimation(Animation.ABSOLUTE, 0.0f,//Se traslada a animación en linea recta hacia el centro
                 Animation.ABSOLUTE, x_centerOfScreen - startPosition[0],
                 Animation.ABSOLUTE, 0.0f, Animation.ABSOLUTE, y_centerOfScreen - startPosition[1]);
         translate.setInterpolator(new AccelerateDecelerateInterpolator());
         translate.setDuration(2000);
         animationSet.addAnimation(translate);
 
-        animationSet.setFillAfter(true);
+        animationSet.setFillAfter(true);//la transformación que esta animación realiza persistirá cuando esté terminado.
 
-        view.startAnimation(animationSet);
+        view.startAnimation(animationSet);//Se ejecutan todas las animaciones adheridas y por propiedad se ejecutan todas a la vez
     }
 
 

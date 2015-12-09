@@ -22,10 +22,10 @@ import android.widget.ToggleButton;
  * Created by BrayanAsdrubal on 6/12/2015.
  */
 public class PropertyAnimationActivity extends Activity {
-    AnimatorSet sunAnimatorSet;
+    AnimatorSet sunAnimatorSet;//Animator Set Me permite realizar varias animaciones a la vez al objeto
     AnimatorSet cloud1AnimatorSet;
     AnimatorSet cloud2AnimatorSet;
-    ValueAnimator skyAnimator;
+    ValueAnimator skyAnimator;//ValueAnimator me permite modificar valores de los objetos a animar
     ValueAnimator groundAnimator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class PropertyAnimationActivity extends Activity {
         cloud1AnimatorSet.setTarget(cloud1);
 
         // cloud2
-        ImageView cloud2 = (ImageView) findViewById(R.id.cloud2);
+        ImageView cloud2 = (ImageView) findViewById(R.id.cloud2);//Se establece la animación creada en en la carpeta animator a la nube
         cloud2AnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.cloud_movement);
         cloud2AnimatorSet.setTarget(cloud2);
 
@@ -103,18 +103,18 @@ public class PropertyAnimationActivity extends Activity {
         );
 
 
-        groundAnimator = ObjectAnimator.ofInt
+        groundAnimator = ObjectAnimator.ofInt//proporciona soporte para animar propiedades de objetos de destino
                 (findViewById(R.id.ground), "backgroundColor",
                         Color.rgb(0x00, 0x47, 0x00), Color.rgb(0x85, 0xae, 0x85));
         //set same duration and animation properties as others
         groundAnimator.setDuration(10000);
         groundAnimator.setEvaluator(new ArgbEvaluator());
         groundAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        groundAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        groundAnimator.setRepeatMode(ValueAnimator.REVERSE);//Repetimos la animación
 
     }
 
-        public void onToggleClicked(View view) {
+        public void onToggleClicked(View view) {//Boton que activa o desactiva la animación
 
             boolean on = ((ToggleButton) view).isChecked();
 
