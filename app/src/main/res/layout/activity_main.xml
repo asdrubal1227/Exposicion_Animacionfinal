@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Graficos y Animaciones"
         android:textAlignment="center"
+        android:gravity="center"
         android:layout_margin="25dp"
         android:textSize="30dp"
         android:textColor="@color/darkblue"/>
